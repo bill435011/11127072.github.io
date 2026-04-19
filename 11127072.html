@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>11127072 個人網站</title>
+
+<style>
+body {
+    font-family: Arial;
+    margin: 0;
+    text-align: center;
+}
+
+/* 桌機 */
+.desktop {
+    background-color: #cce5ff;
+    padding: 30px;
+}
+
+/* 手機 */
+.mobile {
+    background-color: #d4edda;
+    padding: 20px;
+    display: none;
+}
+
+/* RWD判斷 */
+@media (max-width: 768px) {
+    .desktop {
+        display: none;
+    }
+    .mobile {
+        display: block;
+    }
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 桌機版 -->
+<div class="desktop">
+    <h1>桌機版畫面</h1>
+    <h2>學號：11127072</h2>
+
+    <button onclick="showSection('about')">個人簡介</button>
+    <button onclick="showSection('hobby')">興趣專長</button>
+
+    <div id="about">
+        <h3>個人簡介</h3>
+        <p>我是資工系學生，學號11127072，喜歡寫程式與學習新技術。</p>
+    </div>
+
+    <div id="hobby" style="display:none;">
+        <h3>興趣專長</h3>
+        <p>我的興趣是釣魚，喜歡在戶外放鬆並享受釣魚的樂趣。</p>
+    </div>
+</div>
+
+<!-- 手機版 -->
+<div class="mobile">
+    <h1>📱手機版畫面</h1>
+    <h2>11127072</h2>
+
+    <button onclick="showSection('about_m')">個人簡介</button>
+    <button onclick="showSection('hobby_m')">興趣專長</button>
+
+    <div id="about_m">
+        <h3>個人簡介</h3>
+        <p>我是資工系學生📱</p>
+    </div>
+
+    <div id="hobby_m" style="display:none;">
+        <h3>興趣專長</h3>
+        <p>🎣 釣魚是我的主要興趣！</p>
+    </div>
+</div>
+
+<script>
+// 切換內容
+function showSection(id) {
+    let all = document.querySelectorAll("[id^='about'], [id^='hobby']");
+    all.forEach(el => el.style.display = "none");
+    document.getElementById(id).style.display = "block";
+}
+
+// 裝置判斷（輔助說明用）
+if (window.innerWidth <= 768) {
+    console.log("目前為手機裝置");
+} else {
+    console.log("目前為桌機裝置");
+}
+</script>
+
+</body>
+</html>
